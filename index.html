@@ -34,8 +34,15 @@ if ('sharedStorage' in window) {
 if (window?.sharedStorage?.selectURL instanceof Function) {
   // optionally check specifically for the selectURL function in Shared Storage
 }
+        
+        
+        
+        
+        
 // document.browsingTopics() returns an array of up to three topic objects in random order.
-const topics = await document.browsingTopics();
+(async () => { 
+        const topics = await document.browsingTopics();
+
  
 // The returned array looks like: [{'value': Number, 'taxonomyVersion': String, 'modelVersion': String}]
  
@@ -51,6 +58,8 @@ const response = await fetch('https://ads.example/get-creative', {
 const creative = await response.json();
  
 // Display ad.
+    
+})()
         
         </script>
     
