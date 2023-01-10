@@ -24,6 +24,30 @@
 <body>
      
 <a href="https://supership.jp/business/scaleout/" target="_blank" rel="noopener noreferrer">リンクはこちら</a>
+   
+    if (document.featurePolicy.allowsFeature('attribution-reporting')) {
+  // Attribution Reporting enabled
+}
+
+if ('runAdAuction' in navigator) {
+  // FLEDGE enabled
+}
+
+if ('browsingTopics' in document) {
+  // Topics enabled
+}
+
+if ('HTMLFencedFrameElement' in window) {
+  // Fenced Frames enabled
+}
+
+if ('sharedStorage' in window) {
+  // Shared Storage enabled
+}
+
+if (window?.sharedStorage?.selectURL instanceof Function) {
+  // optionally check specifically for the selectURL function in Shared Storage
+}
     
   
 </body>
