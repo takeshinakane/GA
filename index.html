@@ -26,24 +26,24 @@
 <a href="https://supership.jp/business/scaleout/" target="_blank" rel="noopener noreferrer">リンクはこちら</a>
    
     <script>
-    if (document.featurePolicy.allowsFeature('attribution-reporting')) {
-  // Attribution Reporting enabled
+    if (document.featurePolicy.allowsFeature('attribution-reporting')) 
+         console.log("attribution-reporting.")
 }
 
 if ('runAdAuction' in navigator) {
-  // FLEDGE enabled
+    console.log("FLEDGE enabled")
 }
 
 if ('browsingTopics' in document) {
-  // Topics enabled
+  console.log("topics enabled")
 }
 
 if ('HTMLFencedFrameElement' in window) {
-  // Fenced Frames enabled
+   console.log("FencedFrame enabled")
 }
 
 if ('sharedStorage' in window) {
-  // Shared Storage enabled
+  console.log("FencedFrame enabled")
 }
 
 if (window?.sharedStorage?.selectURL instanceof Function) {
