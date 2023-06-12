@@ -4,6 +4,7 @@
     <meta http-equiv="origin-trial" content="TOKEN_GOES_HERE">
     <meta charset="utf-8" />
     <title></title>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 
 </head>
 
@@ -35,13 +36,40 @@ if (window?.sharedStorage?.selectURL instanceof Function) {
   // optionally check specifically for the selectURL function in Shared Storage
 }
         
+// Get the user's topics
+window.navigator.topics.getInterestGroups().then(topics => {
+  // Check if the topics array is empty
+  if (topics.length === 0) {
+    // Do something else, such as showing a default message or ad
+    alert('No topics found');
+  } else {
+    // Do the same as before
+    var div = document.createElement('div');
+    div.id = 'topics';
+    div.style.border = '1px solid black';
+    div.style.padding = '10px';
+    div.style.margin = '10px';
+  
+    var h1 = document.createElement('h1');
+    h1.textContent = 'Your topics';
+  
+    var ul = document.createElement('ul');
+  
+    for (var topic of topics) {
+      var li = document.createElement('li');
+      li.textContent = topic.name + ' (' + topic.version + ')';
+      ul.appendChild(li);
+    }
+  
+    div.appendChild(h1);
+    div.appendChild(ul);
+  
+    document.body.appendChild(div);
+  }
+});
         
         
         
-        
-// document.browsingTopics() returns an array of up to three topic objects in random order.
-(async () => { 
-        const topics = await document.browsingTopics();
 
  
 // The returned array looks like: [{'value': Number, 'taxonomyVersion': String, 'modelVersion': String}]
