@@ -40,8 +40,22 @@ if (window?.sharedStorage?.selectURL instanceof Function) {
 window.navigator.topics.getInterestGroups().then(topics => {
   // Check if the topics array is empty
   if (topics.length === 0) {
-    // Do something else, such as showing a default message or ad
-    alert('No topics found');
+    // Create a div element to display the message
+    var div = document.createElement('div');
+    div.id = 'message';
+    div.style.border = '1px solid red';
+    div.style.padding = '10px';
+    div.style.margin = '10px';
+    
+    // Create a paragraph element to show the text
+    var p = document.createElement('p');
+    p.textContent = 'not here';
+    
+    // Append the paragraph to the div
+    div.appendChild(p);
+    
+    // Append the div to the body
+    document.body.appendChild(div);
   } else {
     // Do the same as before
     var div = document.createElement('div');
@@ -67,7 +81,6 @@ window.navigator.topics.getInterestGroups().then(topics => {
     document.body.appendChild(div);
   }
 });
-        
         
         
 
