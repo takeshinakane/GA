@@ -4,38 +4,13 @@
     <meta http-equiv="origin-trial" content="TOKEN_GOES_HERE">
     <meta charset="utf-8" />
     <title></title>
-    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-
 </head>
 
 <body>
      
 <a href="https://supership.jp/business/scaleout/" target="_blank" rel="noopener noreferrer">リンクはこちら</a>
    
-    <script>
-    if (document.featurePolicy.allowsFeature('attribution-reporting')) 
-         console.log("attribution-reporting.")
-        
-if ('runAdAuction' in navigator) {
-    console.log("FLEDGE enabled")
-}
-
-if ('browsingTopics' in document) {
-  console.log("topics enabled")
-}
-
-if ('HTMLFencedFrameElement' in window) {
-   console.log("FencedFrame enabled")
-}
-
-if ('sharedStorage' in window) {
-  console.log("FencedFrame enabled")
-}
-
-if (window?.sharedStorage?.selectURL instanceof Function) {
-  // optionally check specifically for the selectURL function in Shared Storage
-}
-        
+ <script>
 // Get the user's topics
 window.navigator.topics.getInterestGroups().then(topics => {
   // Check if the topics array is empty
@@ -81,9 +56,6 @@ window.navigator.topics.getInterestGroups().then(topics => {
     document.body.appendChild(div);
   }
 });
-        
-        
-
  
 // The returned array looks like: [{'value': Number, 'taxonomyVersion': String, 'modelVersion': String}]
  
@@ -102,7 +74,7 @@ const creative = await response.json();
     
 })()
         
-        </script>
+  </script>
     
   
 </body>
