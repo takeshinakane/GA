@@ -1,9 +1,14 @@
+
+</html>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="origin-trial" content="TOKEN_GOES_HERE">
-    <meta charset="utf-8" />
-    <title></title>
 </head>
 
 <body>
@@ -11,68 +16,26 @@
 <a href="https://supership.jp/business/scaleout/" target="_blank" rel="noopener noreferrer">リンクはこちら</a>
    
  <script>
-// Get the user's topics
-window.navigator.topics.getInterestGroups().then(topics => {
-  // Check if the topics array is empty
-  if (topics.length === 0) {
-    // Create a div element to display the message
-    var div = document.createElement('div');
-    div.id = 'message';
-    div.style.border = '1px solid red';
-    div.style.padding = '10px';
-    div.style.margin = '10px';
-    
-    // Create a paragraph element to show the text
-    var p = document.createElement('p');
-    p.textContent = 'not here';
-    
-    // Append the paragraph to the div
-    div.appendChild(p);
-    
-    // Append the div to the body
-    document.body.appendChild(div);
-  } else {
-    // Do the same as before
-    var div = document.createElement('div');
-    div.id = 'topics';
-    div.style.border = '1px solid black';
-    div.style.padding = '10px';
-    div.style.margin = '10px';
-  
-    var h1 = document.createElement('h1');
-    h1.textContent = 'Your topics';
-  
-    var ul = document.createElement('ul');
-  
-    for (var topic of topics) {
-      var li = document.createElement('li');
-      li.textContent = topic.name + ' (' + topic.version + ')';
-      ul.appendChild(li);
+async function getTopics() {
+  if('browsingTopics' in document && document.featurePolicy.allowsFeature('browsing-topics')) {
+    try {
+      const topics = await document.browsingTopics();
+      if (topics.length > 0) {
+        for (const topic of topics) {
+          console.log(topic.topic)
+        }
+      } else {
+        console.log('there are no topics')
+      }
+    } catch (error) {
+      console.log('exception with browsing topics')
     }
-  
-    div.appendChild(h1);
-    div.appendChild(ul);
-  
-    document.body.appendChild(div);
+  } else {
+    console.log('document.browsingTopics() is not supported on this page')
   }
-});
- 
-// The returned array looks like: [{'value': Number, 'taxonomyVersion': String, 'modelVersion': String}]
- 
-// Get data for an ad creative.
-const response = await fetch('https://takeshinakane.github.io/accepter/', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(topics)
-});
-// Get the JSON from the response.
-const creative = await response.json();
- 
-// Display ad.
-    
-})()
+}
+
+const intervalId = setInterval(getTopics, 1000);
         
   </script>
     
